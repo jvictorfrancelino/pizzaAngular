@@ -1,0 +1,76 @@
+<mat-toolbar color="warn">
+  <span>CRUD Pizzeria</span>
+  <span class="button-add"></span>
+  <button mat-raised-button (click)="openAddEditEmpForm()">Add Pizza</button>
+</mat-toolbar>
+
+<div class="filter" *ngIf="pizzas.length > 0">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Pepperoni"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+        <td mat-cell *matCellDef="let row">{{ row.img }}</td>
+      </ng-container>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="flavor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Flavor</th>
+        <td mat-cell *matCellDef="let row">{{ row.flavor }}</td>
+      </ng-container>
+      <ng-container matColumnDef="border">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Border</th>
+        <td mat-cell *matCellDef="let row">{{ row.border }}</td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let row">{{ row.price }}</td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            class="edit-button"
+            mat-icon-button
+            color="primary"
+            (click)="updatePizza(row)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            class="delete-button"
+            mat-icon-button
+            color="warn"
+            (click)="deletePizza(row.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="mat-elevation-z2 notFoundPizza" *ngIf="pizzas.length === 0">
+  <p>No pizzas found in the database.</p>
+</div>

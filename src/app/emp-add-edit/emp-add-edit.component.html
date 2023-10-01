@@ -1,0 +1,38 @@
+<div mat-dialog-title>
+  <h1>Pizza Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()" >
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Flavor</mat-label>
+        <input matInput type="text" placeholder="Ex. Pepperoni" formControlName="flavor"/>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" placeholder="50.00" formControlName="price"/>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option of border" formControlName="border">
+        <mat-label>Border</mat-label>
+        <mat-radio-button value="Standard">Standard</mat-radio-button>
+        <mat-radio-button value="Catupiry">Catupiry</mat-radio-button>
+        <mat-radio-button value="Cheese">Cheese</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Image</mat-label>
+        <input matInput type="text" placeholder="Image Link" formControlName="image"/>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Add'}}</button>
+  </div>
+</form>

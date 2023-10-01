@@ -1,0 +1,57 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "name": "Jensen",
+      "lastname": "Ackles",
+      "email": "Jensen@gmail.com",
+      "birth": "0199-12-02T03:06:28.000Z",
+      "genre": "men",
+      "level": "Senior",
+      "company": "Google",
+      "experience": "3",
+      "salary": "1900",
+      "id": 1
+    },
+    {
+      "name": "Daniel",
+      "lastname": "Ackles",
+      "email": "Daniel@gmail.com",
+      "birth": "0199-12-02T03:06:28.000Z",
+      "genre": "men",
+      "level": "Senior",
+      "company": "Google",
+      "experience": "3",
+      "salary": "1900",
+      "id": 2
+    },
+    {
+      "name": "Pedro",
+      "lastname": "Ackles",
+      "email": "Pedro@gmail.com",
+      "birth": "0199-12-02T03:06:28.000Z",
+      "genre": "men",
+      "level": "Senior",
+      "company": "Google",
+      "experience": "3",
+      "salary": "1900",
+      "id": 3
+    }
+  ]
+}
