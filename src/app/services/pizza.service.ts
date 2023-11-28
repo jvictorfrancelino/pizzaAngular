@@ -13,9 +13,8 @@ export class PizzaService {
     return this.httpClient
     .get('http://localhost:8080/api/pizzas/')
     .pipe(
-      map((response: any) => response.pizzas),
+      map((response: any) => response.pizzasList),
       catchError((error) => {
-        console.error('HTTP call error: ', error);
         return of([]); //
       })
     );

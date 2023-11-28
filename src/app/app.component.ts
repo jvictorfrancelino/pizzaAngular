@@ -18,7 +18,7 @@ import { switchMap, catchError } from 'rxjs/operators';
 export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   displayedColumns: string[] = [
-    'img',
+    // 'img',
     'id',
     'flavor',
     'border',
